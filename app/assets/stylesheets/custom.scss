@@ -1,0 +1,139 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url(https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css);
+
+
+// mixins, variables, etc,
+
+$gray-medium-light: #eaeaea;
+$dark-gray: #4c4c4c;
+$salmon-pink: #f68655;
+$dark-salmon-pink: #f76f33;
+$yellow: #f6b352;
+
+
+// universal
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+.btn-login {
+  text-align: center;
+  margin: 50px 0 100px 0;
+}
+
+.btn {
+  background-color: $salmon-pink;
+  color: white;
+  &:hover {
+    background-color: $dark-salmon-pink;
+    color: white;
+  }
+}
+
+.home h1 {
+  font-size: 4em;
+  margin: 70px 0 40px 0;
+}
+
+
+// typography
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-family: "Rounded Mplus 1c";
+  font-size: 3em;
+  color: $dark-gray;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+// header
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  font-family: "Rounded Mplus 1c";
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.navbar {
+  background-color: $yellow;
+}
+
+#nav-list {
+  color: white;
+  &:hover {
+    color: $dark-gray;
+  }
+}
+
+
+// footer
+
+footer {
+  margin-top: 70px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-medium-light;
+  color: $dark-gray;
+  a {
+    color: $dark-gray;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
