@@ -3,9 +3,13 @@
     <%= link_to "こども語録", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "ホーム",   root_path, id: "nav-list" %></li>
-        <li><%= link_to "ヘルプ",   help_path, id: "nav-list" %></li>
-        <li><%= link_to "ログイン", '#', id: "nav-list" %></li>
+        <li><%= link_to "ホーム", root_path, id: "nav-list" %></li>
+        <li><%= link_to "ヘルプ", help_path, id: "nav-list" %></li>
+        <% if logged_in? %>
+          <li><%= link_to "ログアウト", logout_path, method: :delete, id: "nav-list" %></li>
+        <% else %> 
+          <li><%= link_to "ログイン", '/auth/twitter', id: "nav-list" %></li>
+        <% end %>
       </ul>
     </nav>
   </div>

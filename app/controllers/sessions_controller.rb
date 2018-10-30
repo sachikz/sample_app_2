@@ -3,10 +3,16 @@ class SessionsController < ApplicationController
     user = User.find_or_create_from_auth_hash(request.env['omniauth.auth'])
     #request.env['omniauth.auth']に、OmniAuthによってHash化されたユーザーデータが格納されている。
     if user
-      session[:user_id] = user.id
-      redirect_to root_path, notice: 'ログインしました'
+      log_in user #Sessionsヘルパーのlog_inメソッド
+      redirect_to root_path
     else
-      redirect_to root_path, notice: 'ログインできませんでした'
+      flash.now[:danger] = 'ログインできませんでした'
+      redirect_to root_path
     end
+  end
+  
+  def destroy
+    log_out
+    redirect_to root_path
   end
 end
