@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
   attr_accessor :remember_token
   
   #OmniAuthで取得した各データを変数に代入する
@@ -42,5 +43,9 @@ class User < ApplicationRecord
   #データベースの記憶トークンを破棄する
   def forget
     update_attribute(:remember_digest, nil)
+  end
+  
+  def feed
+    Micropost.where("user_id = ?", id)
   end
 end

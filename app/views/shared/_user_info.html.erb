@@ -1,0 +1,4 @@
+<%= link_to user_image(current_user), current_user %>
+<h1><%= current_user.nickname %></h1>
+<span><%= link_to "マイページを見る", current_user %></span>
+<span><% pluralize(current_user.microposts.count, "投稿") %></span>
