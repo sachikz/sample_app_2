@@ -9,12 +9,16 @@ class UsersController < ApplicationController
   #外部から使えないようにする
   private
     
-    #beforeアクション
-    #ログイン済みユーザーかどうか確認
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] = "Twitterアカウントでログインしてください"
-        redirect_to root_url
-      end
+    #beforeフィルター
+    
+    #正しいユーザーかどうかを確認
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
+    
+    #管理者かどうかを確認
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end

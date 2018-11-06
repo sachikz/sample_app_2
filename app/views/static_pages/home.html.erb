@@ -1,19 +1,11 @@
 <% if logged_in? %>
   <div class="row">
-    <aside class="col-md-4">
-      <section class="user_info">
-        <%= render 'shared/user_info' %>
-      </section>
-      <section class="micropost_form">
-        <%= render 'shared/micropost_form' %>
-      </section>
-    </aside>
     <h1>こども語録</h1>
     <h2>こどものおもしろ発言を投稿しよう！</h2>
-    <div class="col-md-8">
-      <h3>みんなの投稿</h3>
-      <%= render 'shared/feed' %>
+    <div class="btn-post">
+      <%= link_to "投稿する", new_micropost_path, class: "btn" %>
     </div>
+    <%= render 'shared/feed' %>
   </div>
 <% else %>
   <div class="home">
