@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
     #ユーザーのログインを確認する
     def logged_in_user
       unless logged_in?
-        store_location
         flash[:danger] = "Twitterアカウントでログインしてください"
         redirect_to root_url
       end

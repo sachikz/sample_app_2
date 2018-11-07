@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy, :new]
+  before_action :logged_in_user, only: [:create, :destroy, :new, :index]
   before_action :correct_user,   only: :destroy
   
   def create
@@ -8,7 +8,7 @@ class MicropostsController < ApplicationController
       flash[:success] = "投稿しました"
       redirect_to root_url
     else
-      render 'new'
+      render :new and return
     end
   end
   
@@ -20,6 +20,10 @@ class MicropostsController < ApplicationController
   
   def new
     @micropost = current_user.microposts.build if logged_in?
+  end
+  
+  def index
+    redirect_to new_micropost_path
   end
   
   private

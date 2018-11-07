@@ -6,6 +6,7 @@
 // mixins, variables, etc,
 
 $gray-medium-light: #eaeaea;
+$right-gray: #808080;
 $dark-gray: #4c4c4c;
 $salmon-pink: #f68655;
 $dark-salmon-pink: #f76f33;
@@ -168,12 +169,16 @@ aside {
       margin-bottom: 3px;
       line-height: 1;
     }
-    h1 {
+    h2 {
       font-size: 1.4em;
       text-align: left;
       letter-spacing: -1px;
       margin-bottom: 3px;
       margin-top: 0px;
+    }
+    .twitter-ac {
+      color: #1da1f2;
+      margin-top: 10px;
     }
   }
 }
@@ -181,6 +186,7 @@ aside {
 .twitter_icon {
   float: left;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 
@@ -201,15 +207,21 @@ aside {
   .content {
     display: block;
     margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
-    }
   }
-  .timestamp {
-    color: $dark-gray;
+  .child_age {
+    font-size: 0.9em;
+    color: $right-gray;
     display: block;
     margin-left: 60px;
+  }
+  .picture {
+    padding: 5px 0;
+  }
+  .timestamp {
+    font-size: 0.9em;
+    display: block;
+    margin-left: 60px;
+    margin-top: 10px;
   }
   .twitter_icon {
     float: left;

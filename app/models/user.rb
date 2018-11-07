@@ -7,11 +7,13 @@ class User < ApplicationRecord
     provider = auth_hash[:provider]
     uid = auth_hash[:uid]
     nickname = auth_hash[:info][:nickname]
+    name = auth_hash[:info][:name]
     image_url = auth_hash[:info][:image]
     
     self.find_or_create_by(provider: provider, uid: uid) do |user|
     #find_or_create_by()は()の中の条件のものが見つかれば取得し、なければ新規作成するというメソッド。
       user.nickname = nickname
+      user.name = name
       user.image_url = image_url
     end
   end
@@ -46,6 +48,6 @@ class User < ApplicationRecord
   end
   
   def feed
-    Micropost.where("user_id = ?", id)
+    Micropost
   end
 end

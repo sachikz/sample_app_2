@@ -1,19 +1,22 @@
-<% provide(:title, @user.nickname) %>
+<% provide(:title, @user.name) %>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <%= link_to user_image(@user), user_path %>
-        <%= link_to @user.nickname, user_path %>
-        <%= link_to("https://twitter.com/#{@user.nickname}") do %>
-          <i class="fab fa-twitter-square"></i>
-        <% end %>
-      </h1>
+      <%= user_image(@user) %>
+      <h2><%= link_to @user.name, user_path %></h2>
+      <span class="twitter-ac">
+        <%= fa_icon "twitter" %>
+        <%= link_to "twitterアカウント", "https://twitter.com/#{@user.nickname}", :target=>["_blank"] %>
+      </span>
     </section>
+    <% if current_user.admin? && !current_user?(@user) %>
+      <%= link_to "※ユーザーを削除する", @user, method: :delete,
+                                          data: { confirm: "本当に削除しますか？" } %>
+    <% end %>
   </aside>
   <div class="col-md-8">
     <% if @user.microposts.any? %>
-      <h3>投稿 (<%= @user.microposts.count %>)</h3>
+      <h3>投稿数 (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
         <%= render @microposts %>
       </ol>

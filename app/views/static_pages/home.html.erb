@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <div class="row">
-    <h1>こども語録</h1>
+    <h1 class="top-title">こども語録</h1>
     <h2>こどものおもしろ発言を投稿しよう！</h2>
     <div class="btn-post">
       <%= link_to "投稿する", new_micropost_path, class: "btn" %>
@@ -9,7 +9,7 @@
   </div>
 <% else %>
   <div class="home">
-    <h1>こども語録</h1>
+    <h1 class="top-title">こども語録</h1>
     <h2>こどものおもしろ発言を投稿しよう！</h2>
     <div class="btn-login">
       <%= link_to "Twitter アカウントでログイン", '/auth/twitter', class: "btn btn-lg" %>
