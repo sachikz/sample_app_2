@@ -1,17 +1,22 @@
 <% if logged_in? %> <!--ログイン済みユーザーの場合-->
-  <% if micropost.like_user(current_user.id) %>
-    <%= button_to like_path(@likes, micropost_id: micropost.id), method: :delete, id: "like-button", remote: true do %> 
-      <%= image_tag("icon_red_heart.png") %>
-      <span>
-        <%= micropost.likes_count %>
-      </span>
+  <% if micropost.iine?(current_user) %> <!--いいね済の場合-->
+    <%= form_for(micropost.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+      <%= button_tag(class: "uniine_button") do %>
+        <%= image_tag("icon_red_heart.png") %>
+        <span>
+          <%= micropost.likes_count %>
+        </span>
+      <% end %>
     <% end %>
-  <% else %>
-    <%= button_to like_path(micropost),id: "like-button", remote: true do %>  
-      <%= image_tag("icon_heart.png") %>
-      <span>
-        <%= micropost.likes_count %>
-      </span>
+  <% else %> <!--未いいねの場合-->
+    <%= form_for(micropost.likes.build, remote: true) do |f| %>
+      <div><%= hidden_field_tag :micropost_id, micropost.id %></div>
+      <%= button_tag(class: "iine_button") do %>
+        <%= image_tag("icon_heart.png") %>
+        <span>
+          <%= micropost.likes_count %>
+        </span>
+      <% end %>
     <% end %>
   <% end %>
 <% else %> <!--未ログインユーザーの場合-->

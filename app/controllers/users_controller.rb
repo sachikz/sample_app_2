@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
-    @likes = Like.where(micropost_id: params[:micropost_id])
+    @likes = Like.where(micropost_id: params[:micropost_id]) #合計like数
   end
   
   def destroy
