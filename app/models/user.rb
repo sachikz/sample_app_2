@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
+  has_many :likes, dependent: :destroy
   attr_accessor :remember_token
   
   #OmniAuthで取得した各データを変数に代入する
