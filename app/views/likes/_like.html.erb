@@ -1,20 +1,22 @@
-<% if micropost.iine?(current_user) %> <!--いいね済の場合-->
-  <%= form_for(micropost.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-    <%= button_tag(class: "btn-uniine") do %>
-      <%= image_tag("icon_red_heart.png") %>
-      <span>
-        <%= micropost.likes_count %>
-      </span>
+<span id="like-<%= micropost.id %>">
+  <% if micropost.iine?(current_user) %> <!--いいね済の場合-->
+    <%= form_for(micropost.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+      <%= button_tag(class: "btn-uniine") do %>
+        <%= image_tag("icon_red_heart.png") %>
+        <span>
+          <%= micropost.likes_count %>
+        </span>
+      <% end %>
+    <% end %>
+  <% else %> <!--未いいねの場合-->
+    <%= form_for(micropost.likes.build, remote: true) do |f| %>
+      <div><%= hidden_field_tag :micropost_id, micropost.id %></div>
+      <%= button_tag(class: "btn-iine") do %>
+        <%= image_tag("icon_heart.png") %>
+        <span>
+          <%= micropost.likes_count %>
+        </span>
+      <% end %>
     <% end %>
   <% end %>
-<% else %> <!--未いいねの場合-->
-  <%= form_for(micropost.likes.build, remote: true) do |f| %>
-    <div><%= hidden_field_tag :micropost_id, micropost.id %></div>
-    <%= button_tag(class: "btn-iine") do %>
-      <%= image_tag("icon_heart.png") %>
-      <span>
-        <%= micropost.likes_count %>
-      </span>
-    <% end %>
-  <% end %>
-<% end %>
+</span>
