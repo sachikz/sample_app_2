@@ -10,8 +10,8 @@
   </span>
   <span class="child_age"></span>
   <span class="picture"><%= image_tag micropost.picture.url if micropost.picture? %></span>
-  <span class="micropost-iine">
-    <%= render "likes/like", micropost: micropost %>
+  <span class="micropost-iine"><%= render "likes/like", micropost: micropost %></span>
+  <span class="micropost-delete">
     <% if current_user?(micropost.user) || current_user.admin? %>
       <%= link_to "削除", micropost, method: :delete,
                                       data: { confirm: "投稿を削除しますか？" } %>
