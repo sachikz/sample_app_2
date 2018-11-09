@@ -57,6 +57,15 @@ textarea {
   }
 }
 
+.btn-uniine, .btn-iine {
+  background-color: white;
+  border: solid 1px #b3b3b3;
+  border-radius: 3px;
+  &:hover {
+    border: solid 1px $right-gray;
+  }
+}
+
 
 
 
@@ -206,27 +215,33 @@ aside {
   }
   .content {
     display: block;
-    margin-left: 60px;
-  }
-  .child_age {
-    font-size: 0.9em;
-    color: $right-gray;
-    display: block;
-    margin-left: 60px;
+    margin: 10px 0 10px 60px;
+    .child_age {
+      font-size: 0.8em;
+      color: $dark-salmon-pink;
+      margin-left: 10px;
+      display: inline;
+    }
   }
   .picture {
-    padding: 5px 0;
-  }
-  .timestamp {
-    font-size: 0.9em;
     display: block;
     margin-left: 60px;
-    margin-top: 10px;
+  }
+  .timestamp {
+    font-size: 0.8em;
+    display: block;
+    margin-left: 60px;
+    color: $right-gray;
   }
   .twitter_icon {
     float: left;
     margin-right: 10px;
     margin-top: 5px;
+  }
+  .micropost-iine {
+    display: block;
+    margin-left: 60px;
+    margin-top: 10px;
   }
 }
 
